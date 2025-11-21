@@ -25,7 +25,7 @@ public class ProdutoController {
 	@Autowired
 	private ProdutoService produtoService;
 
-
+    /*Test unitário OK*/
 	@GetMapping
 	public ResponseEntity<List<Produto>> listarTodos() {
 
@@ -40,12 +40,14 @@ public class ProdutoController {
 		return ResponseEntity.ok(produtos);
 	}
 
+	/*Test unitário OK*/
 	@PostMapping
 	public ResponseEntity<Produto> criar(@RequestBody Produto produto) {
 		Produto salvo = produtoService.salvar(produto);
 		return ResponseEntity.ok(salvo);
 	}
 
+	/*Test unitário OK*/
 	@PutMapping
 	public ResponseEntity<Produto> atualizar(@RequestBody Produto produto) {
 		return ResponseEntity.ok(produtoService.atualizar(produto));
