@@ -168,7 +168,7 @@ public class ProdutoTest extends TesteGeneric {
         produtoRepository.deleteById(response.getBody().getId());
 	}
 	
-	
+	/*FALTA PASSAR PARA O ALUNO*/
 	@Test
 	@DisplayName("6 - GET /api/produtos/{id} - Deve buscar um produto pelo ID")
 	void testeBuscaPorId() throws Exception {
@@ -192,6 +192,7 @@ public class ProdutoTest extends TesteGeneric {
 	}
 	
 	
+	/*FALTA PASSAR PARA O ALUNO*/
 	@Test
 	@DisplayName("8 - DELETE /api/produtos/{id} - Deve DELETER um produto pelo ID")
 	void testeDeletePorId() throws Exception {

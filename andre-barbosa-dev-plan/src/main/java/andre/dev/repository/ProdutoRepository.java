@@ -16,6 +16,6 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 	@Transactional(readOnly = true)
 	@Query("SELECT p FROM Produto p WHERE LOWER(p.nome) LIKE %:nome%")
 	List<Produto> buscarPorNome(@Param("nome") String nome);
-
+	
 
 }

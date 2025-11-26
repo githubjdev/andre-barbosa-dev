@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import andre.dev.entity.Produto;
@@ -92,6 +94,15 @@ public class ProdutoController {
 	    return ResponseEntity.ok(produtos);
 	}
 	
+	// FALTA PASSAR PARA O ALUNO
+	//http://localhost:8080/andre-barbosa-dev/api/produtos/listaPaginada?page=0&size=5
+	@GetMapping("/listaPaginada")
+	public ResponseEntity<List<Produto>> listaPaginada(@RequestParam(defaultValue = "0") int page,
+													   @RequestParam(defaultValue = "10") int size) {
+
+		Page<Produto> pagina = produtoService.listaPaginada(page, size);
+		return ResponseEntity.ok(pagina.getContent());
+	}
 	
 
 }
